@@ -30,9 +30,21 @@ app.use("/auth",authRoutes);
 app.use("/products",productRoutes);
 app.use("/cart",cartRoutes);
 
-app.get("/",(req,res)=>{
-  res.send("Welcome to E-Commerce API...\n login-auth/login\n signup-auth/signup\n logout-auth/logout\n products-/products\n toAdd into Products-/products/add\n toUpdate Products-products/id\n toDelete Product-products/id\n toAdd into Cart-cart/add\n toRemove from Cart-cart/remove\n toCheck Cart-cart/checkout");
-})
+app.get("/", (req, res) => {
+  res.send(
+    "Welcome to E-Commerce API...\n" +
+    "login: /auth/login\n" +
+    "signup: /auth/signup\n" +
+    "logout: /auth/logout\n" +
+    "view products: /products\n" +
+    "add product: /products/add\n" +
+    "update product: /products/:id\n" +
+    "delete product: /products/:id\n" +
+    "add to cart: /cart/add\n" +
+    "remove from cart: /cart/remove\n" +
+    "checkout cart: /cart/checkout"
+  );
+});
 
 app.listen(PORT,()=>{
   console.log(`Server Running on PORT:${PORT}`);
